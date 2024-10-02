@@ -1,0 +1,16 @@
+{
+  "name": "videostreamingapplication",
+  "version": "1.0.0",
+  "description": "A video streaming Platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Javascript"
+  ],
+  "author": "SiddharthDhodi",
+  "license": "ISC"
+}
