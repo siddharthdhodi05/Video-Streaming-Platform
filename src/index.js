@@ -1,12 +1,36 @@
 // require('dotenv').config({path: './env'})
-import connectDB from "../db/index.js";
+/*import connectDB from "../db/index.js";
 import dotenv from "dotenv"
 dotenv.config({
     path: './.env'
 })
 
 
-connectDB()
+connectDB()*/
+
+import express from 'express';
+import { connectToDatabase } from '../db/index.js';
+
+const app = express();
+
+// Connect to MongoDB
+connectToDatabase();
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+// Define your port
+const PORT = process.env.PORT || 5000;
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 
 
