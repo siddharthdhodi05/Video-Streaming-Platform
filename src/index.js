@@ -1,15 +1,6 @@
-// require('dotenv').config({path: './env'})
-/*import connectDB from "../db/index.js";
-import dotenv from "dotenv"
-dotenv.config({
-    path: './.env'
-})
-
-
-connectDB()*/
-
 import express from 'express';
-import { connectToDatabase } from '../db/index.js';
+import connectToDatabase from "../db/index.js";
+  // Use relative path to import db.js
 
 const app = express();
 
@@ -31,45 +22,3 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-import express from "express"
-const app = express()
-( async () => {
-    try {
-        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-        app.on("errror", (error) => {
-            console.log("ERRR: ", error);
-            throw error
-        })
-
-        app.listen(process.env.PORT, () => {
-            console.log(`App is listening on port ${process.env.PORT}`);
-        })
-
-    } catch (error) {
-        console.error("ERROR: ", error)
-        throw err
-    }
-})()
-
-*/
-//NZ9capPVbusgkouR
