@@ -1,24 +1,24 @@
-import express from 'express';
 import connectToDatabase from "../db/index.js";
+import { app } from "./app.js";
   // Use relative path to import db.js
 
-const app = express();
 
 // Connect to MongoDB
-connectToDatabase();
+connectToDatabase().then(
+  () =>{
+    app.listen(process.env.PORT || 8000, ()=>{
+      console.log(`Server is running at port: ${process.env.PORT}`);
+    })
+  }
+).catch((err)=>{
+  console.log('====================================');
+  console.log("Mongodb connection fail");
+  console.log('====================================');
+})
 
-// Middleware
-app.use(express.json());
 
-// Routes
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
 
-// Define your port
+
 const PORT = process.env.PORT || 5000;
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
